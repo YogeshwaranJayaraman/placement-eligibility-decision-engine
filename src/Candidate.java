@@ -24,7 +24,7 @@ public class Candidate {
     return percentage;
     }
 
-    public int getBacklog() {
+    public int getBacklogs() {
     return backlogs;
     }
 
