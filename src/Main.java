@@ -26,13 +26,10 @@ import java.util.Scanner;
           "Java Developer",
           65.0,
           0,
-          2026);
+          2026
+        );
 
-        EligibilityRule[] rules = {
-        new PercentageRule(),
-        new BacklogRule(),
-        new GraduationYearRule()
-        };
+        EligibilityChecker checker = new EligibilityChecker();     
 
         System.out.println("================================");
         System.out.println("PLACEMENT ELIGIBILITY RESULT");
@@ -44,18 +41,10 @@ import java.util.Scanner;
         System.out.println("Role      : " + job.getRole());
         System.out.println();
         
-        boolean eligible = true;
+        System.out.println();
 
-        for (int i = 0; i < rules.length; i++) {
-        boolean passed = rules[i].check(candidate, job);
+        boolean eligible=checker.evaluate(candidate,job);
 
-        if (passed) {
-        System.out.println(rules[i].getRuleName() + " : PASS");
-        } else {
-        System.out.println(rules[i].getRuleName() + " : FAIL");
-        eligible = false;
-        }
-        }
         System.out.println();
 
         if (eligible) {
